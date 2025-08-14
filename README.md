@@ -75,14 +75,3 @@ python supplementary.py
 <img width="2000" height="1200" alt="image" src="https://github.com/user-attachments/assets/8b53be0b-4bb7-41fb-998b-ce1bc8c5969d" />
 
 
----
-
-## Privacy and Ethics
-
-* User conversations remain local unless explicitly configured for cloud storage.
-* The model includes basic safety checks to avoid harmful responses.
-* Designed as a supportive tool, not a replacement for professional care.
-
----
-
-Do you want me to also **add a “Training and Evaluation” section** explaining how `loss-plot.pdf` and `the-verdict.txt` fit into the model workflow? That would make the README more useful for others viewing your repo.
