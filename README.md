@@ -1,68 +1,88 @@
-# Local Setup Instructions
+# Mental Health Chatbot Language Model
 
-This document provides instructions for setting the environment up locally.
+## Importance of Mental Healthcare
 
-<br>
-<br>
+Mental health support is essential, especially for individuals with ADHD. In the United States, around 3 million adults are diagnosed with ADHD, facing challenges with focus, organization, and emotional regulation. Research shows that targeted digital assistance can improve daily structure, reduce stress, and increase overall well-being. Tools like personal digital assistants have been shown to help people with ADHD improve focus, task completion, and emotional stability.
 
-## 1. Download and install Miniforge
+This project focuses on a language model designed for a mental healthcare chatbot that offers reminders, check-ins, and context-aware support to improve the day-to-day experiences of users, particularly those managing ADHD.
 
-Download miniforge from the GitHub repository [here](https://github.com/conda-forge/miniforge).
+---
 
-<img src="https://sebastianraschka.com/images/LLMs-from-scratch-images/setup/01_optional-python-setup-preferences/download.png" alt="download" width="600px">
+## Repository Structure
 
-Depending on your operating system, this should download either an `.sh` (macOS, Linux) or `.exe` file (Windows).
+```
+README.md           # Documentation and setup instructions
+loss-plot.pdf       # Training loss visualization
+pretraining.ipynb   # Notebook for model pretraining
+supplementary.py    # Supporting Python functions and scripts
+```
 
-For the `.sh` file, open your command line terminal and execute the following command
+---
+
+## Local Setup Instructions
+
+### 1. Download and install Miniforge
+
+Download Miniforge from the [official repository](https://github.com/conda-forge/miniforge).
+
+Depending on your operating system, download the `.sh` file (macOS, Linux) or `.exe` file (Windows).
+
+For macOS/Linux:
 
 ```bash
-sh ~/Desktop/Miniforge3-MacOSX-arm64.sh
+sh ~/Downloads/Miniforge3-MacOSX-arm64.sh
 ```
 
-where `Desktop/` is the folder where the Miniforge installer was downloaded to. On your computer, you may have to replace it with `Downloads/`.
+Replace `Downloads/` with the directory where the installer is located.
 
-<img src="https://sebastianraschka.com/images/LLMs-from-scratch-images/setup/01_optional-python-setup-preferences/miniforge-install.png" alt="miniforge-install" width="600px">
+To improve Conda’s performance, run:
 
-Next, step through the download instructions, confirming with "Enter".
-
-
-
-If you work with many packages, Conda can be slow because of its thorough but complex dependency resolution process and the handling of large package indexes and metadata. To speed up Conda, you can use the following setting, which switches to a more efficient Rust reimplementation for solving dependencies:
-
-```
+```bash
 conda config --set solver libmamba
 ```
 
-<br>
-<br>
+---
 
-
-## 2. Create a new virtual environment
-
-After the installation was successfully completed, I recommend creating a new virtual environment called `LLMs`, which you can do by executing
+### 2. Create a new virtual environment
 
 ```bash
-conda create -n LLMs python=3.10
+conda create -n mhchatbot python=3.10
+conda activate mhchatbot
 ```
 
-<img src="https://sebastianraschka.com/images/LLMs-from-scratch-images/setup/01_optional-python-setup-preferences/new-env.png" alt="new-env" width="600px">
+Using Python 3.10 ensures compatibility with most ML libraries.
 
-> Many scientific computing libraries do not immediately support the newest version of Python. Therefore, when installing PyTorch, it's advisable to use a version of Python that is one or two releases older. For instance, if the latest version of Python is 3.13, using Python 3.10 or 3.11 is recommended.
+---
 
-Next, activate your new virtual environment (you have to do it every time you open a new terminal window or tab):
-
-```bash
-conda activate LLMs
-```
-
-<img src="https://sebastianraschka.com/images/LLMs-from-scratch-images/setup/01_optional-python-setup-preferences/activate-env.png" alt="activate-env" width="600px">
-
-<br>
-
-## 3. Install required Python libraries
-
-To install these requirements most conveniently, you can use the `requirements.txt` file in the root directory for this code repository and execute the following command:
+### 3. Install required Python libraries
 
 ```bash
 pip install -r requirements.txt
 ```
+
+---
+
+## Running the Model
+
+You can run the model training and chatbot service from the Jupyter notebook or Python scripts.
+
+Example to run a supplementary script:
+
+```bash
+python supplementary.py
+```
+
+<img width="2000" height="1200" alt="image" src="https://github.com/user-attachments/assets/8b53be0b-4bb7-41fb-998b-ce1bc8c5969d" />
+
+
+---
+
+## Privacy and Ethics
+
+* User conversations remain local unless explicitly configured for cloud storage.
+* The model includes basic safety checks to avoid harmful responses.
+* Designed as a supportive tool, not a replacement for professional care.
+
+---
+
+Do you want me to also **add a “Training and Evaluation” section** explaining how `loss-plot.pdf` and `the-verdict.txt` fit into the model workflow? That would make the README more useful for others viewing your repo.
